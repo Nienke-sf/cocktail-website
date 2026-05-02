@@ -2,13 +2,56 @@ body{
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background-color: #FFF5F7;
 }
 
-.navbar{
-    background-color:grey ;
-    height: 117px;
+.navbar {
+  background-color: #FDD1DE;
+  height: 117px;
+  display: flex;
+  align-items: center; /* vertical centering */
 }
+
+/* Remove Bulma restriction */
+.navbar-item img {
+  max-height: none;
+}
+/* Setting text color */
+.navbar-item {
+    color: #E15B7E; 
+}
+
+/* LOGO CONTROL */
+.logo {
+  width: 100%;
+  height: 117px;      /* keep proportions */
+  object-fit: contain;
+}
+#contactbtn{
+    background-color:#E15B7E;
+    color: #FDD1DE;
+    border-radius: 30px;
+  
+}
+
+.hero {
+  background-image: url('../res/banner img.png'); /* fix space issue */
+  background-size: cover;
+  background-position: center;
+  height: 550px;
+
+  display: flex;
+  align-items: center;      /* vertical */
+  justify-content: center;  /* horizontal */
+  text-align: center;       /* centers text */
+}
+
+.hero-content .title,
+.hero-content .subtitle {
+  color: #FDD1DE;
+  text-align: center;
+}
+
 
 .titlebox{
     
