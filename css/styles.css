@@ -289,3 +289,25 @@ body{
   margin: 0 auto;
 }
 
+
+
+/* //////////////////////////  VIBE VIALS PAGE DESIGN  ///////////////////////////////  */ 
+
+/* Make card content stack nicely */
+.vial-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Push button to bottom */
+.vial-card .card-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Button stays bottom-left */
+.card-footer-left {
+  margin-top: auto;
+}
