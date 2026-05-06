@@ -87,10 +87,15 @@ body{
   height: 4px; /* thicker line for active */
 }
 
-
 .navbar-item.active {
   font-weight: 600;
 }
+
+/* .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000; 
+} */
 
 
 
@@ -270,8 +275,10 @@ body{
   height: 326px;
   object-fit: contain; /* IMPORTANT: no cropping */
   display: block;
-  margin: 0 auto;
+  margin: 0;
 }
+
+
 
 .bdaytitle {
     margin-top: 12px;
@@ -310,4 +317,61 @@ body{
 /* Button stays bottom-left */
 .card-footer-left {
   margin-top: auto;
+}
+
+
+
+/* //////////////////////////  MENU PAGE DESIGN  ///////////////////////////////  */ 
+
+.flavour-card {
+    background-color: #FDD1DE;
+    color: #486284;
+    padding: 25px;
+    border-radius: 8px;
+    height: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+.flavour-card h3 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #E15B7E;
+}
+.flavour-card p {
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #486284;
+}
+
+.menu-col{
+  align-items: stretch;
+}
+
+.note-text{
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-top: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.note-text2{
+    font-size: 1rem;
+    font-weight: 300;
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.menu-title {
+    margin-top: 12px;
+    font-size: 40px;
+    font-weight: 700;
+    color: #E15B7E;
+    margin-bottom: 40px;
 }
