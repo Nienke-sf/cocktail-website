@@ -176,6 +176,21 @@ body{
     margin-top: 20px;
     text-align: center;
 }
+.more-reviews-link {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #E15B7E;
+  text-decoration: none;
+  transition: 0.3s ease;
+  
+}
+
+.more-reviews-link:hover {
+  letter-spacing: 1px;
+  color: #486284;
+  }
+
+
 
 /* SOCIAlS  DESIGN */
 .custom-divider {
@@ -195,12 +210,15 @@ body{
     width: 90px;
     height: 90px;
     object-fit: contain;
+    padding: 10px;
     transition: transform 0.3s ease;
 }
 .insta-icon:hover {
     transform: scale(1.1);
 }
 
+
+/* FOOTER DESIGN */
 .footer {
   background-color: #E15B7E;
   padding: 20px 0;
@@ -222,6 +240,10 @@ body{
 }
 .social-icon:hover {
     transform: scale(1.1);
+}
+.copyright{
+    font-size: 0.9rem;
+    text-align: center;
 }
 
 
@@ -262,7 +284,7 @@ body{
 /* //////////////////////////  GALLERY PAGE DESIGN  ///////////////////////////////  */ 
 
 /* SERVICE SECTION & IMG  DESIGN */
-.weddingtitle {
+.weddingtitle,.bdaytitle {
     margin-top: 12px;
     font-size: 60px;
     font-weight: 700;
@@ -272,29 +294,60 @@ body{
 
 .wedding-card img {
   width: 260px;
-  height: 326px;
+  height: 526px;
   object-fit: contain; /* IMPORTANT: no cropping */
   display: block;
   margin: 0;
 }
-
-
-
-.bdaytitle {
-    margin-top: 12px;
-    font-size: 60px;
-    font-weight: 700;
-    color: #E15B7E;
-    margin-bottom: 40px;
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    margin-top: 5px;
 }
 
-.bday-card img {
-  width: 260px;
-  height: 326px;
-  object-fit: contain; /* IMPORTANT: no cropping */
-  display: block;
-  margin: 0 auto;
+.gallery-item {
+    overflow: hidden;
+    border-radius: 8px;
+    aspect-ratio: 1 / 1;
+    background: #f5f5f5;
+    position: relative;
 }
+
+/* IMAGES + VIDEOS */
+.gallery-item img,
+.gallery-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* HOVER EFFECT */
+.gallery-item img:hover,
+.gallery-item video:hover {
+    transform: scale(1.03);
+    /* transition: 0.3s ease; */
+}
+
+/* MOBILE */
+@media screen and (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .weddingtitle,
+    .bdaytitle {
+        font-size: 38px;
+    }
+}
+
+
+
+
+
+
+
 
 
 
@@ -305,7 +358,31 @@ body{
   display: flex;
   flex-direction: column;
   height: 100%;
+  background-color: #FDD1DE;
 }
+
+
+/* IMAGE CONTAINER */
+.vial-image {
+  width: 100%;
+  height: 420px; /* same height for all cards */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  overflow: hidden;
+}
+
+/* ACTUAL IMAGE */
+.vial-image img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
 
 /* Push button to bottom */
 .vial-card .card-content {
@@ -313,11 +390,22 @@ body{
   flex-direction: column;
   height: 100%;
 }
+.vials-title{
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #E15B7E;
+}
+.vials-subtitle{
+  font-size: 0.90rem;
+  color: #E15B7E;
+}
 
 /* Button stays bottom-left */
 .card-footer-left {
   margin-top: auto;
 }
+
+
 
 
 
@@ -346,6 +434,11 @@ body{
     font-weight: 400;
     font-size: 1.05rem;
     line-height: 1.6;
+    color: #486284;
+}
+
+#cups{
+    font-weight: 600;
     color: #486284;
 }
 
