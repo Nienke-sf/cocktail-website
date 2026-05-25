@@ -74,12 +74,7 @@ body {
 .navbar-item.active span::after { width: 100%; height: 4px; }
 .navbar-item.active { font-weight: 600; }
 
-/* make navbar stay on top when scrolling  
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000; 
-} */
+
 
 
 /* Contact button */
@@ -279,32 +274,104 @@ body {
 //////////////////////////////////////////////////// */
 .footer {
   background-color: #E15B7E;
-  padding: 28px 16px;
-  color: black;
+  padding: 48px 16px 24px;
+  color: #FDD1DE;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .footer-logo {
   width: auto;
-  height: 100px;
+  height: 80px;
   object-fit: contain;
-  border-radius: 20px;
+  border-radius: 16px;
   display: block;
-  margin: 0 auto 16px;
+  margin-bottom: 12px;
 }
 
-.social-icon {
-  width: 70px;
-  height: 70px;
-  padding: 16px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
+.footer-tagline {
+  font-size: 0.9rem;
+  color: #FDD1DE;
+  opacity: 0.85;
+  line-height: 1.5;
 }
-.social-icon:hover { transform: scale(1.1); }
+
+.footer-heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FDD1DE;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-box a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #FDD1DE;
+  font-size: 0.95rem;
+  padding: 6px 0;
+  text-decoration: none;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.footer-box a:hover {
+  color: #fff;
+  padding-left: 6px;
+}
+
+.footer-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* makes icons white */
+}
+
+.footer-location {
+  font-size: 0.95rem;
+  color: #FDD1DE;
+  margin-top: 8px;
+}
+
+.footer-divider {
+  border: none;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.25);
+  margin: 16px 0;
+}
 
 .copyright {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-align: center;
+  color: #FDD1DE;
+  opacity: 0.8;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* ////////////////////////////////////////////////////
@@ -586,20 +653,14 @@ body {
     margin-bottom: 20px;
   }
 
-  /* FOOTER */
-  .footer-logo {
-    height: 80px;
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 
-  .social-icon {
-    width: 56px;
-    height: 56px;
-    padding: 12px;
-  }
 
-  .insta-icon {
-    width: 56px;
-    height: 56px;
+  .footer-grid {
+    grid-template-columns: 1fr;
   }
 
   /* ABOUT */
