@@ -1,61 +1,119 @@
-body{
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #FFF5F7;
+/* =====================================================
+   SIPS GALORE — styles.css
+   Fully responsive across mobile, tablet, desktop
+   ===================================================== */
+
+/* BASE */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #FFF5F7;
 }
 
 
-
- /* //////////////////////////  HOME PAGE DESIGN  ///////////////////////////////  */
-
-/* NAVIGATION DESIGN */
- .navbar {
+/* ////////////////////////////////////////////////////
+   NAVIGATION
+//////////////////////////////////////////////////// */
+.navbar {
   background-color: #FDD1DE;
-  height: 117px;
+  min-height: 80px;
   display: flex;
-  align-items: center; /* vertical centering */
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0 1rem;
 }
 
+/* Remove Bulma's max-height restriction on logo */
 .navbar-item img {
-  max-height: none; /* Remove Bulma restriction */
-}
-.navbar-item {
-    height: 50px;
-    color: #E15B7E;  /* Setting text color */
-    position: relative;
-    transition: transform 0.3s ease;
+  max-height: none;
 }
 
 .logo {
-  width: 100%;
-  height: 117px;      /* keep proportions */
+  width: auto;
+  height: 70px;
   object-fit: contain;
 }
-#contactbtn{
-    background-color:#E15B7E;
-    color: #FDD1DE;
-    border-radius: 30px;
-  
+
+.navbar-item {
+  color: #E15B7E;
+  position: relative;
+  transition: transform 0.3s ease;
+  font-size: 1rem;
 }
 
-#contactbtn:hover{
-    background-color: #FDD1DE;
-    color: #E15B7E;
-    border: 2px solid #E15B7E;
-    transition: 0.3s ease;
+.navbar-item:hover {
+  transform: scale(1.08);
+  background-color: transparent !important;
+  color: #E15B7E !important;
 }
-/* IMG & BANNER  DESIGN */
+.navbar-item span {
+  position: relative;
+  display: inline-block;
+}
+
+/* Underline effect */
+.navbar-item span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 3px;
+  background-color: #E15B7E;
+  transition: width 0.3s ease;
+}
+
+
+
+
+.navbar-item.active span::after { width: 100%; height: 4px; }
+.navbar-item.active { font-weight: 600; }
+
+/* make navbar stay on top when scrolling  
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000; 
+} */
+
+
+/* Contact button */
+#contactbtn {
+  background-color: #E15B7E;
+  color: #FDD1DE;
+  border-radius: 30px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+}
+#contactbtn:hover {
+  background-color: #FDD1DE;
+  color: #E15B7E;
+  border: 2px solid #E15B7E;
+}
+
+/* Hamburger colour fix */
+.navbar-burger span {
+  background-color: #E15B7E;
+}
+
+
+/* ////////////////////////////////////////////////////
+   HERO BANNER
+//////////////////////////////////////////////////// */
 .hero {
-  background-image: url('../res/banner-img.png'); /* fix space issue */
+  background-image: url('../res/banner-img.png');
   background-size: cover;
   background-position: center;
-  height: 550px;
-
+  height: 500px;
   display: flex;
-  align-items: center;      /* vertical */
-  justify-content: center;  /* horizontal */
-  text-align: center;       /* centers text */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .hero-content .title,
@@ -64,75 +122,49 @@ body{
   text-align: center;
 }
 
-#headertitle{
-    font-size: 7rem;
-}
-
-/* Hover scale */
-.navbar-item:hover {
-  transform: scale(1.1);
-  background-color: transparent !important;
-  color: #E15B7E !important; /* keep your pink text */
-}
-
-/* Underline (hidden by default) */
-.navbar-item::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 0%;
-  height: 3px;
-  background-color: #E15B7E;
-  transition: width 0.3s ease;
-}
-
-/* ACTIVE PAGE (persistent underline) */
-.navbar-item.active::after {
-  width: 100%;
-  height: 4px; /* thicker line for active */
-}
-
-.navbar-item.active {
-  font-weight: 600;
-}
-
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000; 
+#headertitle {
+  font-size: clamp(3rem, 8vw, 7rem); /* scales with screen */
 }
 
 
-
-/* SERVICE SECTION & IMG  DESIGN */
+/* ////////////////////////////////////////////////////
+   HOME — SERVICES SECTION
+//////////////////////////////////////////////////// */
 .servicestitle {
-    margin-top: 12px;
-    font-size: 60px;
-    font-weight: 700;
-    color: #E15B7E;
-    margin-bottom: 40px;
+  font-size: clamp(2rem, 5vw, 60px);
+  font-weight: 700;
+  color: #E15B7E;
+  margin-top: 12px;
+  margin-bottom: 40px;
+}
+
+.service-card {
+  padding: 10px;
 }
 
 .service-card img {
-  width: 260px;
-  height: 326px;
-  object-fit: contain; /* IMPORTANT: no cropping */
+  width: 100%;
+  max-width: 280px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
   display: block;
   margin: 0 auto;
 }
 
-/* Title styling */
 .service-title {
   margin-top: 12px;
-  font-size: 25px;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #E15B7E;
 }
 
-/* EVENTS & IMG  DESIGN */
+
+/* ////////////////////////////////////////////////////
+   HOME — EVENTS SECTIONS (Private Events / Vibe Vials)
+//////////////////////////////////////////////////// */
 .options-title {
-  font-size: 3rem;
+  font-size: clamp(1.8rem, 4vw, 3rem);
   font-weight: 700;
   margin-bottom: 20px;
   color: #E15B7E;
@@ -140,246 +172,240 @@ body{
 
 .uniform-img {
   width: 100%;
-  height: 350px;      /* adjust to taste */
-  object-fit: cover;  /* keeps image nicely cropped */
-  border-radius: 8px; /* optional */
+  height: 380px;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
-.content{
-     font-size: 1.4rem;
-     color: #486284;
+.content {
+  font-size: 1.2rem;
+  color: #486284;
+  line-height: 1.7;
+}
+
+/* Stack columns on mobile */
+.columns.is-vcentered {
+  gap: 1.5rem;
 }
 
 
-
-/* REVIEW SECTION DESIGN */
+/* ////////////////////////////////////////////////////
+   HOME — REVIEWS SECTION
+//////////////////////////////////////////////////// */
 .review-title {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #E15B7E;
-    margin-bottom: 40px;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #E15B7E;
+  margin-bottom: 40px;
 }
+
 .review-section {
-    margin-top: 20px;
-    padding: 40px 20px;
+  margin-top: 20px;
+  padding: 40px 20px;
 }
+
 .review-box {
-    background-color: #FDD1DE;
-    color: #486284;
+  background-color: #FDD1DE;
+  color: #486284;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  border-radius: 8px;
 }
 
 .stars {
-    font-size: 3rem;
-    color: #E15B7E;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;     
-    justify-content: center;  
-    text-align: center; 
+  font-size: 1.8rem;
+  color: #E15B7E;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
+
 .client {
-    font-weight: bold;
-    margin-top: 20px;
-    text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
 }
+
 .more-reviews-link {
   font-size: 1.1rem;
   font-weight: 600;
   color: #E15B7E;
   text-decoration: none;
   transition: 0.3s ease;
-  
+  display: block;
+  text-align: center;
+  margin-top: 24px;
 }
-
 .more-reviews-link:hover {
   letter-spacing: 1px;
   color: #486284;
-  }
+}
 
 
-
-/* SOCIAlS  DESIGN */
+/* ////////////////////////////////////////////////////
+   HOME — SOCIALS SECTION
+//////////////////////////////////////////////////// */
 .custom-divider {
-    border: none;
-    height: 5px;
-    background-color: #E15B7E;
-    margin: 10px 0; 
+  border: none;
+  height: 5px;
+  background-color: #E15B7E;
+  margin: 10px 0;
 }
 
-.icon-title{
-    font-size: 4rem;
-    font-weight: 700;
-    color: #E15B7E;
-    margin-bottom: 40px;
+.icon-title {
+  font-size: clamp(1.8rem, 4vw, 4rem);
+  font-weight: 700;
+  color: #E15B7E;
+  margin-bottom: 24px;
 }
+
 .insta-icon {
-    width: 90px;
-    height: 90px;
-    object-fit: contain;
-    padding: 10px;
-    transition: transform 0.3s ease;
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  padding: 8px;
+  transition: transform 0.3s ease;
 }
-.insta-icon:hover {
-    transform: scale(1.1);
-}
+.insta-icon:hover { transform: scale(1.1); }
 
 
-/* FOOTER DESIGN */
+/* ////////////////////////////////////////////////////
+   FOOTER
+//////////////////////////////////////////////////// */
 .footer {
   background-color: #E15B7E;
-  padding: 20px 0;
+  padding: 28px 16px;
   color: black;
-
 }
+
 .footer-logo {
-  width: 100%;
-  height: 117px;      /* keep proportions */
+  width: auto;
+  height: 100px;
   object-fit: contain;
-  border-radius: 30px;
-}
-.social-icon{
-    width: 90px;
-    height: 90px;
-    padding: 20px;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
-.social-icon:hover {
-    transform: scale(1.1);
-}
-.copyright{
-    font-size: 0.9rem;
-    text-align: center;
+  border-radius: 20px;
+  display: block;
+  margin: 0 auto 16px;
 }
 
+.social-icon {
+  width: 70px;
+  height: 70px;
+  padding: 16px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+.social-icon:hover { transform: scale(1.1); }
+
+.copyright {
+  font-size: 0.9rem;
+  text-align: center;
+}
 
 
-
-/* //////////////////////////  ABOUT PAGE DESIGN  ///////////////////////////////  */
-
+/* ////////////////////////////////////////////////////
+   ABOUT PAGE
+//////////////////////////////////////////////////// */
 .about-section {
-    margin-top: 20px;
-    padding: 60px 20px;
+  margin-top: 20px;
+  padding: 40px 16px;
 }
 
 .sub-title {
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: #E15B7E;
-    margin-bottom: 20px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #E15B7E;
+  margin-bottom: 16px;
 }
-.columns {
-  gap: 2rem;
-}
+
+.columns { gap: 1.5rem; }
 
 .sips-img {
   width: 100%;
   max-width: 433px;
-  height: 542px;
+  height: auto;
+  max-height: 542px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .collage-img {
   width: 100%;
-  max-width: 750px;  /* increase size */
-  height: auto;      /*  keeps full image visible */
+  max-width: 750px;
+  height: auto;
   object-fit: contain;
+  border-radius: 8px;
 }
 
 
-/* //////////////////////////  GALLERY PAGE DESIGN  ///////////////////////////////  */ 
-
-/* SERVICE SECTION & IMG  DESIGN */
-.weddingtitle,.bdaytitle {
-    margin-top: 12px;
-    font-size: 60px;
-    font-weight: 700;
-    color: #E15B7E;
-    margin-bottom: 40px;
+/* ////////////////////////////////////////////////////
+   GALLERY PAGE
+//////////////////////////////////////////////////// */
+.weddingtitle, .bdaytitle {
+  font-size: clamp(2rem, 5vw, 60px);
+  font-weight: 700;
+  color: #E15B7E;
+  margin-top: 12px;
+  margin-bottom: 32px;
 }
 
-.wedding-card img {
-  width: 260px;
-  height: 526px;
-  object-fit: contain; /* IMPORTANT: no cropping */
-  display: block;
-  margin: 0;
-}
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 6px;
-    margin-top: 5px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 10px;
 }
 
 .gallery-item {
-    overflow: hidden;
-    border-radius: 8px;
-    aspect-ratio: 1 / 1;
-    background: #f5f5f5;
-    position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  aspect-ratio: 1 / 1;
+  background: #f5f5f5;
+  position: relative;
+  cursor: pointer;
 }
 
-/* IMAGES + VIDEOS */
 .gallery-item img,
 .gallery-item video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
-/* HOVER EFFECT */
-.gallery-item img:hover,
-.gallery-item video:hover {
-    transform: scale(1.03);
-    /* transition: 0.3s ease; */
-}
-
-/* MOBILE */
-@media screen and (max-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .weddingtitle,
-    .bdaytitle {
-        font-size: 38px;
-    }
+.gallery-item:hover img,
+.gallery-item:hover video {
+  transform: scale(1.04);
 }
 
 
-
-
-
-
-
-
-
-
-/* //////////////////////////  VIBE VIALS PAGE DESIGN  ///////////////////////////////  */ 
-
-/* Make card content stack nicely */
+/* ////////////////////////////////////////////////////
+   VIBE VIALS PAGE
+//////////////////////////////////////////////////// */
 .vial-card {
   display: flex;
   flex-direction: column;
   height: 100%;
   background-color: #FDD1DE;
-}
-
-
-/* IMAGE CONTAINER */
-.vial-image {
-  width: 100%;
-  height: 420px; /* same height for all cards */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
+  border-radius: 10px;
   overflow: hidden;
 }
 
-/* ACTUAL IMAGE */
+.vial-image {
+  width: 100%;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  overflow: hidden;
+}
+
 .vial-image img {
   max-width: 100%;
   max-height: 100%;
@@ -389,102 +415,198 @@ body{
   display: block;
 }
 
-
-/* Push button to bottom */
 .vial-card .card-content {
   display: flex;
   flex-direction: column;
-  height: 100%;
-}
-.vials-title{
-  font-weight: bold;
-  font-size: 1.25rem;
-  color: #E15B7E;
-}
-.vials-subtitle{
-  font-size: 0.90rem;
-  color: #E15B7E;
+  flex: 1;
+  padding: 16px;
 }
 
-/* Button stays bottom-left */
+.vials-title {
+  font-weight: bold;
+  font-size: 1.15rem;
+  color: #E15B7E;
+  margin-bottom: 4px;
+}
+
+.vials-subtitle {
+  font-size: 0.88rem;
+  color: #E15B7E;
+  margin-bottom: 10px;
+}
+
 .card-footer-left {
   margin-top: auto;
+  padding-top: 12px;
 }
 
 
-
-
-
-/* //////////////////////////  MENU PAGE DESIGN  ///////////////////////////////  */ 
-
+/* ////////////////////////////////////////////////////
+   MENU PAGE
+//////////////////////////////////////////////////// */
 .flavour-card {
-    background-color: #FDD1DE;
-    color: #486284;
-    padding: 25px;
-    border-radius: 8px;
-    height: 100%;
-    min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
+  background-color: #FDD1DE;
+  color: #486284;
+  padding: 24px;
+  border-radius: 10px;
+  height: 100%;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
 .flavour-card h3 {
-    margin-top: 5px;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #E15B7E;
+  margin-top: 5px;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #E15B7E;
 }
+
 .flavour-card p {
-    margin-top: 10px;
-    font-weight: 400;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: #486284;
+  margin-top: 8px;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #486284;
 }
 
-#cups{
-    font-weight: 600;
-    color: #486284;
+#cups { font-weight: 600; color: #486284; }
+
+.menu-col { align-items: stretch; }
+
+.note-text {
+  font-size: 1.15rem;
+  font-weight: 300;
+  margin-top: 40px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.menu-col{
-  align-items: stretch;
-}
-
-.note-text{
-    font-size: 1.25rem;
-    font-weight: 300;
-    margin-top: 40px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-.note-text2{
-    font-size: 1rem;
-    font-weight: 300;
-    margin-top: 20px;
-    text-align: center;
-    margin-bottom: 20px;
+.note-text2 {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .menu-title {
-    margin-top: 12px;
-    font-size: 40px;
-    font-weight: 700;
-    color: #E15B7E;
-    margin-bottom: 40px;
+  font-size: clamp(1.6rem, 4vw, 40px);
+  font-weight: 700;
+  color: #E15B7E;
+  margin-top: 12px;
+  margin-bottom: 32px;
 }
 
 .contact-btn {
-    font-size: 1.25rem;
-    font-weight: 700;
-    background-color:#E15B7E;
-    color: #FDD1DE;
-    border-radius: 30px;
-  }
+  font-size: 1.15rem;
+  font-weight: 700;
+  background-color: #E15B7E;
+  color: #FDD1DE;
+  border-radius: 30px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+}
 .contact-btn:hover {
+  background-color: #FDD1DE;
+  color: #E15B7E;
+  border: 2px solid #E15B7E;
+}
+
+
+/* ////////////////////////////////////////////////////
+   RESPONSIVE — TABLET (max 1024px)
+//////////////////////////////////////////////////// */
+@media screen and (max-width: 1024px) {
+
+  .service-card img {
+    height: 240px;
+  }
+
+  .vial-image {
+    height: 260px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* ////////////////////////////////////////////////////
+   RESPONSIVE — MOBILE (max 768px)
+//////////////////////////////////////////////////// */
+@media screen and (max-width: 1023px) {
+  
+  .navbar-menu.is-active {
+    display: block !important;
     background-color: #FDD1DE;
+    padding: 0.5rem 1rem 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-menu.is-active .navbar-item {
     color: #E15B7E;
-    border: 2px solid #E15B7E;
-    transition: 0.3s ease;
+    border-bottom: 1px solid rgba(225, 91, 126, 0.15);
+  }
+
+  /* REVIEWS — single column */
+  .review-section .columns {
+    flex-direction: column;
+  }
+
+  .review-section .columns .column {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  /* GALLERY */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  /* VIBE VIALS CARDS — single column */
+  .columns .column.is-one-third {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 20px;
+  }
+
+  .vial-image {
+    height: 240px;
+  }
+
+  /* MENU flavour cards — single column */
+  .menu-col .column {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 20px;
+  }
+
+  /* FOOTER */
+  .footer-logo {
+    height: 80px;
+  }
+
+  .social-icon {
+    width: 56px;
+    height: 56px;
+    padding: 12px;
+  }
+
+  .insta-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  /* ABOUT */
+  .sips-img {
+    max-height: 320px;
+  }
+}
+
+
 }
