@@ -359,21 +359,6 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ////////////////////////////////////////////////////
    ABOUT PAGE
 //////////////////////////////////////////////////// */
@@ -543,18 +528,11 @@ body {
 
 .menu-col { align-items: stretch; }
 
-.note-text {
-  font-size: 1.15rem;
-  font-weight: 300;
-  margin-top: 40px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
 .note-text2 {
   font-size: 1rem;
   font-weight: 300;
   margin-top: 20px;
+  color: #486284;
   text-align: center;
   margin-bottom: 20px;
 }
