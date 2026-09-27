@@ -479,10 +479,404 @@ body {
 
 
 
+/* ////////////////////////////////////////////////////
+   PACKAGES — SHARED VARIABLES
+//////////////////////////////////////////////////// */
+:root {
+  --pkg-bg: #FDD1DE;
+  --pkg-text: #486284;
+  --pkg-accent: #E15B7E;
+  --pkg-accent-text: #fff;
+}
+
+/* ////////////////////////////////////////////////////
+   PACKAGE BAND : Package section
+//////////////////////////////////////////////////// */
+.package-band {
+  display: flex;
+  align-items: stretch;
+  background-color: var(--pkg-bg);
+  color: var(--pkg-text);
+  border-radius: 14px;
+  overflow: hidden;
+  max-width: 1100px;
+  margin: 0 auto 40px auto;
+  position: relative;
+}
+
+.package-band-visual {
+  flex: 0 0 30%;
+  background-color: var(--pkg-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.package-band-visual h3.title {
+  color: var(--pkg-bg);
+  margin: 0;
+}
+
+.package-band-content {
+  flex: 1;
+  padding: 40px 48px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.package-band-content .package-tagline {
+  color: var(--pkg-text);
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+
+.package-band-content .package-price {
+  color: var(--pkg-accent);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.package-band-content .package-price span {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--pkg-text);
+  opacity: 1;
+}
+
+.package-band-content .package-desc {
+  color: var(--pkg-text);
+  max-width: 480px;
+  margin-bottom: 20px;
+}
+
+.package-band-content .package-time {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--pkg-text);
+  opacity: 1;
+  margin-top: 12px;
+}
+
+.package-list.is-two-col {
+  list-style: none;
+  column-count: 2;
+  column-gap: 32px;
+  padding: 0;
+  margin: 0;
+}
+
+.package-list.is-two-col li {
+  break-inside: avoid;
+  font-size: 1.05rem;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(72, 98, 132, 0.15);
+  color: var(--pkg-text);
+}
+
+.package-list.is-two-col li::before {
+  content: "✓";
+  margin-right: 8px;
+  color: var(--pkg-accent);
+  font-weight: 700;
+}
+
+/* Featured band (no glow) */
+.package-band.is-popular {
+  background-color: var(--pkg-accent);
+  color: var(--pkg-bg);
+}
+
+.package-band.is-popular .package-band-visual {
+  background-color: var(--pkg-text);
+}
+
+.package-band.is-popular .package-band-visual h3.title {
+  color: var(--pkg-bg);
+}
+
+.package-band.is-popular .package-tagline,
+.package-band.is-popular .package-desc,
+.package-band.is-popular .package-time {
+  color: var(--pkg-bg);
+}
+
+.package-band.is-popular .package-price {
+  color: var(--pkg-accent-text);
+}
+
+.package-band.is-popular .package-price span {
+  color: var(--pkg-bg);
+  opacity: 0.85;
+}
+
+.package-band.is-popular .package-list.is-two-col li {
+  color: var(--pkg-bg);
+  border-bottom: 1px solid rgba(253, 209, 222, 0.3);
+}
+
+.package-band.is-popular .package-list.is-two-col li::before {
+  color: var(--pkg-accent-text);
+}
+
+/* Badge sits centered top-left inside the band */
+.package-band .popular-badge {
+  top: 16px;
+  left: 16px;
+  transform: none;
+}
+
+.package-tagline {
+  font-weight: 600;
+  color: var(--pkg-text);
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+
+.package-price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--pkg-accent);
+  margin-bottom: 14px;
+}
+
+.package-price span {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--pkg-text);
+  opacity: 1;
+}
+
+/* Badge sits centered above the card */
+.package-card .popular-badge {
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
+/* ////////////////////////////////////////////////////
+   PACKAGE CARD : Wedding Section
+//////////////////////////////////////////////////// */
+
+
+.package-card {
+  background-color: var(--pkg-bg);
+  color: var(--pkg-text);
+  padding: 32px 24px;
+  border-radius: 10px;
+  height: 100%;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.package-card h3.title {
+  color: var(--pkg-accent);
+  margin-top: 5px;
+  margin-bottom: 4px;
+}
+
+.package-desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--pkg-text);
+  margin-bottom: 12px;
+}
+
+.package-includes {
+  font-weight: 700;
+  color: var(--pkg-text);
+  align-self: flex-start;
+  margin-bottom: 6px;
+}
+.package-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+  text-align: left;
+  width: 100%;
+}
+
+.package-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(72, 98, 132, 0.15);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--pkg-text);
+}
+
+.package-list li:last-child {
+  border-bottom: none;
+}
+
+.package-list li::before {
+  content: "✓";
+  margin-right: 8px;
+  color: var(--pkg-accent);
+  font-weight: 700;
+}
+.package-time {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--pkg-text);
+  opacity: 1;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.package-note {
+  font-size: 0.85rem;
+  color: var(--pkg-text);
+  opacity: 1;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+
+/* ////////////////////////////////////////////////////
+   BADGE — shared base, position set per context above
+//////////////////////////////////////////////////// */
+.popular-badge {
+  position: absolute;
+  background-color: var(--pkg-text);
+  color: var(--pkg-bg);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* Mobile */
+@media screen and (max-width: 1023px) {
+  .package-band {
+    flex-direction: column;
+  }
+
+  .package-band-visual {
+    flex: 0 0 auto;
+    padding: 20px;
+  }
+
+  .package-band-content {
+    padding: 32px 24px;
+  }
+
+  .package-list.is-two-col {
+    column-count: 1;
+  }
+}
 
 
 
 
+/* ////////////////////////////////////////////////////
+   ADDITIONAL SERVICES & FEES
+//////////////////////////////////////////////////// */
+.service-card {
+  background-color: var(--pkg-bg);
+  color: var(--pkg-text);
+  padding: 28px 24px;
+  border-radius: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.service-card h3.title {
+  color: var(--pkg-accent);
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.service-price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--pkg-accent);
+  margin-bottom: 8px;
+}
+
+.service-desc {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--pkg-text);
+  margin: 0;
+}
+
+/* Wide travel card sits above the grid */
+.service-card--wide {
+  max-width: 1100px;
+  margin: 0 auto 48px auto;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.service-card--wide .service-desc {
+  max-width: 700px;
+  margin-bottom: 20px;
+}
+
+.service-subtitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--pkg-accent);
+  margin-bottom: 10px;
+}
+
+.service-extras {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.service-extras li {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(72, 98, 132, 0.15);
+  font-size: 0.95rem;
+  color: var(--pkg-text);
+}
+
+.service-extras li:last-child {
+  border-bottom: none;
+}
+
+.service-extras li span:first-child {
+  font-weight: 600;
+}
+
+.service-extras li span:last-child {
+  text-align: right;
+  opacity: 0.85;
+  white-space: nowrap;
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .service-extras li {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .service-extras li span:last-child {
+    text-align: left;
+  }
+}
 
 
 /* ////////////////////////////////////////////////////
