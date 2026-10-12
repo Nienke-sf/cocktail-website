@@ -16,3 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.addEventListener('toggle', () => {
+    if (item.open) {
+      document.querySelectorAll('.faq-item').forEach(other => {
+        if (other !== item) other.open = false;
+      });
+    }
+  });
+});
