@@ -1,0 +1,1341 @@
+/* =====================================================
+   SIPS GALORE — styles.css
+   Fully responsive across mobile, tablet, desktop
+   ===================================================== */
+
+/* BASE */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; } 
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #FFF5F7;
+}
+
+
+/* ////////////////////////////////////////////////////
+   NAVIGATION
+//////////////////////////////////////////////////// */
+.navbar {
+  background-color: #FDD1DE;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0 1rem;
+}
+
+/* Remove Bulma's max-height restriction on logo */
+/* .navbar-item img {
+  max-height: none;
+} */
+
+.navbar .container {
+  width: 100%;
+} 
+
+/*Logo */
+.logo {
+  width: auto;
+  height: 70px;
+  object-fit: contain;
+}
+
+.navbar-item {
+  color: #E15B7E;
+  position: relative;
+  /* transition: transform 0.3s ease;
+  font-size: 1rem; */
+}
+.navbar-brand .navbar-item img{
+  max-height: none !important;
+  height: clamp(64px, 12vw, 90px);
+  width: auto;
+  padding: 5px;
+  object-fit: contain;
+}
+
+
+.navbar-brand .navbar-item:hover {
+  /* transform: scale(1.08); */
+  background-color: transparent !important;
+  color: #E15B7E !important;
+}
+
+/* Navigation links with underline effect on hover and active state */
+.nav-link, 
+.navbar-end > .navbar-item {
+  color: #E15B7E;
+  font-size: clamp(1rem, 1.7vw, 1.5rem);
+  font-weight: 400;
+  letter-spacing: 0.04rem;
+  transition: color 0.3s ease;
+  background-color: transparent;
+}
+
+.nav-link:hover,
+.navbar-end > .navbar-item:hover {
+  color: #E15B7E !important;
+  transform: scale(1.10);
+  background-color: transparent !important;
+}
+
+
+/* Underline effect */
+.navbar-item.active {
+  color: #E15B7E;
+  font-weight: 600;
+}
+.navbar-item.active span::after { width: 100%; height: 4px; }
+
+.navbar-item span {
+  position: relative;
+  display: inline-block;
+}
+
+.navbar-item span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 3px;
+  background-color: #E15B7E;
+  transition: width 0.2s ease;
+}
+
+
+/* Contact button */
+#contactbtn {
+  background-color: #E15B7E;
+  color: #FDD1DE;
+  border-radius: 4px;
+  font-size: clamp(1rem, 1.7vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: 0.04rem;
+  border: 2px solid #E15B7E;
+}
+#contactbtn:hover {
+  background-color: #FDD1DE;
+  color: #E15B7E;
+  
+}
+
+
+/* Hamburger */
+.navbar-burger {
+  align-self: center;
+  width: 56px;
+  height: 56px;
+  margin-left: auto;
+  background-color: #FDD1DE;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.navbar-burger span {
+  background-color: #E15B7E;
+  width: 30px;
+  height: 3px;
+  left: calc(50% - 14px);
+}
+.navbar-burger span:nth-child(1) { top: calc(50% - 9px); }
+.navbar-burger span:nth-child(2) { top: calc(50% - 1px); }
+.navbar-burger span:nth-child(3) { top: calc(50% + 7px); }
+
+
+/* ////////////////////////////////////////////////////
+   HERO BANNER
+//////////////////////////////////////////////////// */
+.hero {
+  background-image: url('../res/banner-img.png');
+  background-size: cover;
+  background-position: center;
+  height: auto;
+  min-height: clamp(280px, 50vw, 500px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content .title,
+.hero-content .subtitle {
+  color: #FDD1DE;
+  text-align: center;
+}
+
+#headertitle {
+  font-size: clamp(2.5rem, 8vw, 7rem);/* scales with screen */
+}
+
+
+/* ////////////////////////////////////////////////////
+   HOME — SERVICES SECTION
+//////////////////////////////////////////////////// */
+.servicestitle {
+  font-size: clamp(2rem, 5vw, 60px);
+  font-weight: 700;
+  color: #E15B7E;
+  margin-top: 12px;
+  margin-bottom: 40px;
+}
+
+.service-card {
+  padding: 10px;
+}
+
+.service-card img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 14 / 15;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+.service-title {
+  margin-top: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #E15B7E;
+}
+
+
+/* ////////////////////////////////////////////////////
+   HOME — EVENTS SECTIONS (Private Events / Vibe Vials)
+//////////////////////////////////////////////////// */
+.options-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #E15B7E;
+}
+
+.uniform-img {
+  width: 100%;
+  height: clamp(220px, 45vw, 380px);
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.content {
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  color: #486284;
+  line-height: 1.7;
+}
+
+/* Stack columns on mobile */
+.columns.is-vcentered {
+  gap: 1.5rem;
+}
+
+
+/* ////////////////////////////////////////////////////
+   HOME — REVIEWS SECTION
+//////////////////////////////////////////////////// */
+.review-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #E15B7E;
+  margin-bottom: 40px;
+}
+
+.review-section {
+  margin-top: 20px;
+  padding: 40px 20px;
+}
+
+.review-box {
+  background-color: #FDD1DE;
+  color: #486284;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.stars {
+  font-size: 1.8rem;
+  color: #E15B7E;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.client {
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.more-reviews-link {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #E15B7E;
+  text-decoration: none;
+  transition: 0.3s ease;
+  display: block;
+  text-align: center;
+  margin-top: 24px;
+}
+.more-reviews-link:hover {
+  letter-spacing: 1px;
+  color: #486284;
+}
+
+/* Review form background */
+#review-form {
+  background-color: #E15B7E;
+}
+
+/* Labels need to be light so they're readable on the pink */
+#review-form .label {
+  color: #ffffff;
+}
+
+/* Submit button */
+#review-form .button.is-primary {
+  background-color: #FDD1DE;
+  color: #E15B7E;
+  border: none;
+  font-weight: 600;
+}
+
+#review-form .button.is-primary:hover,
+#review-form .button.is-primary:focus {
+  background-color: #fbbfd1;
+  color: #E15B7E;
+}
+
+
+/* ////////////////////////////////////////////////////
+   HOME — SOCIALS SECTION
+//////////////////////////////////////////////////// */
+.custom-divider {
+  border: none;
+  height: 5px;
+  background-color: #E15B7E;
+  margin: 10px 0;
+}
+
+.icon-title {
+  font-size: clamp(1.8rem, 4vw, 4rem);
+  font-weight: 700;
+  color: #E15B7E;
+  margin-bottom: 24px;
+}
+
+.insta-icon {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  padding: 8px;
+  transition: transform 0.3s ease;
+}
+.insta-icon:hover { transform: scale(1.1); }
+
+
+/* ////////////////////////////////////////////////////
+   HOME — FAQ SECTION
+//////////////////////////////////////////////////// */
+.faq-section .faq-list {
+  max-width: 800px;
+  margin: 2rem auto 0;
+  border-top: 1px solid rgba(128, 128, 128, 0.4);
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.4);
+}
+
+.faq-item summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: color 0.2s ease;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary:hover {
+  color: #E15B7E; 
+}
+
+/* chevron */
+.faq-item summary::after {
+  content: "";
+  flex-shrink: 0;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-right: 0.4rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  opacity: 0.6;
+  transform: rotate(45deg);
+  transition: transform 0.25s ease;
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(-135deg);
+}
+
+.faq-answer {
+  padding: 0 2rem 1.25rem 0;
+  line-height: 1.6;
+}
+
+.faq-item[open] .faq-answer {
+  animation: faqFade 0.3s ease;
+}
+
+
+
+
+
+/* ////////////////////////////////////////////////////
+   FOOTER
+//////////////////////////////////////////////////// */
+.footer {
+  background-color: #E15B7E;
+  padding: 48px 16px 24px;
+  color: #FDD1DE;
+}
+
+.footer-grid {
+  display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+   gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-logo {
+  width: auto;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 16px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  color: #FDD1DE;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+.footer-heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FDD1DE;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-box a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #FDD1DE;
+  font-size: 0.95rem;
+  padding: 6px 0;
+  text-decoration: none;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.footer-box a:hover {
+  color: #486284;
+  padding-left: 6px;
+}
+
+.footer-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* makes icons white */
+}
+
+.footer-location {
+  font-size: 0.95rem;
+  color: #FDD1DE;
+  margin-top: 8px;
+}
+
+.footer-divider {
+  border: none;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.25);
+  margin: 16px 0;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  text-align: center;
+  color: #FDD1DE;
+  opacity: 0.8;
+}
+
+
+/* ////////////////////////////////////////////////////
+   MENU PAGE
+//////////////////////////////////////////////////// */
+.flavour-card {
+  background-color: #FDD1DE;
+  color: #486284;
+  padding: 24px;
+  border-radius: 10px;
+  height: 100%;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flavour-card h3 {
+  margin-top: 5px;
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #E15B7E;
+}
+
+.flavour-card p {
+  margin-top: 8px;
+  font-weight: 400;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #486284;
+}
+
+#cups { font-weight: 600; color: #486284; }
+
+.menu-col { align-items: stretch; margin-top: 20px; }
+
+.note-text2 {
+  font-size: 1.05rem;
+  font-weight: 300;
+  margin-top: 20px;
+  color: #486284;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.menu-title {
+  font-size: clamp(1.6rem, 4vw, 40px);
+  font-weight: 700;
+  color: #E15B7E;
+  margin-top: 12px;
+  margin-bottom: 32px;
+}
+
+.contact-btn {
+  font-size: 1.15rem;
+  font-weight: 700;
+  background-color: #E15B7E;
+  color: #FDD1DE;
+  border-radius: 30px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+}
+.contact-btn:hover {
+  background-color: #FDD1DE;
+  color: #E15B7E;
+  border: 2px solid #E15B7E;
+}
+
+
+
+/* ////////////////////////////////////////////////////
+   PACKAGES — SHARED VARIABLES
+//////////////////////////////////////////////////// */
+:root {
+  --pkg-bg: #FDD1DE;
+  --pkg-text: #486284;
+  --pkg-accent: #E15B7E;
+  --pkg-accent-text: #fff;
+}
+
+/* ////////////////////////////////////////////////////
+   PACKAGE BAND : Package section
+//////////////////////////////////////////////////// */
+.package-band {
+  display: flex;
+  align-items: stretch;
+  background-color: var(--pkg-bg);
+  color: var(--pkg-text);
+  border-radius: 14px;
+  overflow: hidden;
+  max-width: 1100px;
+  margin: 0 auto 40px auto;
+  position: relative;
+}
+
+.package-band-visual {
+  flex: 0 0 30%;
+  background-color: var(--pkg-accent); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.package-band-visual h3.title {
+  color: var(--pkg-bg);
+  margin: 0;
+}
+
+.package-band-content {
+  flex: 1;
+  min-width: 0;
+  padding: clamp(24px, 4vw, 40px) clamp(20px, 5vw, 48px);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.package-band-content .package-tagline {
+  color: var(--pkg-text);
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+
+.package-band-content .package-price {
+  color: var(--pkg-accent);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.package-band-content .package-price span {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--pkg-text);
+  opacity: 1;
+}
+
+.package-band-content .package-desc {
+  color: var(--pkg-text);
+  max-width: 480px;
+  margin-bottom: 20px;
+}
+
+.package-band-content .package-time {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--pkg-text);
+  opacity: 1;
+  margin-top: 12px;
+}
+
+.package-list.is-two-col {
+  list-style: none;
+  column-count: 2;
+  column-gap: 32px;
+  padding: 0;
+  margin: 0;
+}
+
+.package-list.is-two-col li {
+  break-inside: avoid;
+  font-size: 1.05rem;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(72, 98, 132, 0.15);
+  color: var(--pkg-text);
+}
+
+.package-list.is-two-col li::before {
+  content: "✓";
+  margin-right: 8px;
+  color: var(--pkg-accent);
+  font-weight: 700;
+}
+
+/* Popular package band */
+.package-band.is-popular {
+  background-color: var(--pkg-bg);
+  color: var(--pkg-text);
+}
+
+.package-band.is-popular .package-band-visual {
+  background-color: var(--pkg-accent);
+  
+}
+
+.package-band.is-popular .package-band-visual h3.title {
+  color: var(--pkg-bg);
+}
+
+.package-band.is-popular .package-tagline,
+.package-band.is-popular .package-desc,
+.package-band.is-popular .package-time {
+  color: var(--pkg-text);
+}
+
+.package-band.is-popular .package-price {
+  color: var(--pkg-accent);
+}
+
+.package-band.is-popular .package-price span {
+  color: var(--pkg-text);
+  opacity: 1;
+}
+
+.package-band.is-popular .package-list.is-two-col li {
+  color: var(--pkg-text);
+  border-bottom: 1px solid rgba(72, 98, 132, 0.15);
+}
+
+.package-band.is-popular .package-list.is-two-col li::before {
+  color: var(--pkg-accent);
+}
+
+.package-tagline {
+  font-weight: 600;
+  color: var(--pkg-text);
+  opacity: 1;
+  margin-bottom: 6px;
+}
+
+.package-price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--pkg-accent);
+  margin-bottom: 14px;
+}
+
+.package-price span {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--pkg-text);
+  opacity: 1;
+}
+
+/* Badge sits centered above the card */
+.package-card .popular-badge {
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
+/* ////////////////////////////////////////////////////
+   PACKAGE CARD : Wedding Section
+//////////////////////////////////////////////////// */
+
+
+.package-card {
+  background-color: var(--pkg-bg);
+  color: var(--pkg-text);
+  padding: 32px 24px;
+  border-radius: 10px;
+  height: 100%;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.package-card h3.title {
+  color: var(--pkg-accent);
+  margin-top: 5px;
+  margin-bottom: 4px;
+}
+
+.package-desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--pkg-text);
+  margin-bottom: 12px;
+}
+
+.package-includes {
+  font-weight: 700;
+  color: var(--pkg-text);
+  align-self: flex-start;
+  margin-bottom: 6px;
+}
+.package-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+  text-align: left;
+  width: 100%;
+}
+
+.package-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(72, 98, 132, 0.15);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--pkg-text);
+}
+
+.package-list li:last-child {
+  border-bottom: none;
+}
+
+.package-list li::before {
+  content: "✓";
+  margin-right: 8px;
+  color: var(--pkg-accent);
+  font-weight: 700;
+}
+.package-time {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--pkg-text);
+  opacity: 1;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.package-note {
+  font-size: 0.85rem;
+  color: var(--pkg-text);
+  opacity: 1;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+
+/* ////////////////////////////////////////////////////
+   BADGE — shared base, position set per context above
+//////////////////////////////////////////////////// */
+.popular-badge {
+  position: absolute;
+  background-color: var(--pkg-text);
+  color: var(--pkg-bg);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+
+
+
+
+/* ////////////////////////////////////////////////////
+   ADDITIONAL SERVICES & FEES
+//////////////////////////////////////////////////// */
+.service-card {
+  background-color: var(--pkg-bg);
+  color: var(--pkg-text);
+  padding: 28px 24px;
+  border-radius: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.service-card h3.title {
+  color: var(--pkg-accent);
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.service-price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--pkg-accent);
+  margin-bottom: 8px;
+}
+
+.service-desc {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--pkg-text);
+  margin: 0;
+}
+
+/* Wide travel card sits above the grid */
+.service-card--wide {
+  max-width: 1100px;
+  margin: 0 auto 48px auto;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.service-card--wide .service-desc {
+  max-width: 700px;
+  margin-bottom: 20px;
+}
+
+.service-subtitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--pkg-accent);
+  margin-bottom: 10px;
+}
+
+.service-extras {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.service-extras li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2px 24px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(72, 98, 132, 0.15);
+  font-size: 0.95rem;
+  color: var(--pkg-text);
+}
+
+.service-extras li:last-child {
+  border-bottom: none;
+}
+
+.service-extras li span:first-child {
+  font-weight: 600;
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+.service-extras li span:last-child {
+  flex: 0 1 auto;
+  min-width: 0;
+  text-align: right;
+  opacity: 0.85;
+  white-space: normal;
+}
+
+
+
+
+/* ////////////////////////////////////////////////////
+   ABOUT PAGE
+//////////////////////////////////////////////////// */
+.about-section {
+  margin-top: 20px;
+  padding: 40px 16px;
+}
+
+.sub-title {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #E15B7E;
+  margin-bottom: 16px;
+}
+
+.columns { gap: 1.5rem; }
+
+.sips-img {
+  width: 100%;
+  max-width: 433px;
+  height: auto;
+  max-height: 542px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.collage-img {
+  width: 100%;
+  max-width: 750px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+
+/* ////////////////////////////////////////////////////
+   GALLERY PAGE
+//////////////////////////////////////////////////// */
+.weddingtitle, .bdaytitle {
+  font-size: clamp(2rem, 5vw, 60px);
+  font-weight: 700;
+  color: #E15B7E;
+  margin-top: 12px;
+  margin-bottom: 32px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 10px;
+  aspect-ratio: 1 / 1;
+  background: #f5f5f5;
+  position: relative;
+  cursor: pointer;
+}
+
+.gallery-item img,
+.gallery-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img,
+.gallery-item:hover video {
+  transform: scale(1.04);
+}
+
+
+/* ////////////////////////////////////////////////////
+   VIBE VIALS PAGE
+//////////////////////////////////////////////////// */
+.vial-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #FDD1DE;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.vial-image {
+  width: 100%;
+  height: clamp(220px, 32vw, 320px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  overflow: hidden;
+}
+
+.vial-image img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.vial-card .card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 16px;
+}
+
+.vials-title {
+  font-weight: bold;
+  font-size: 1.15rem;
+  color: #E15B7E;
+  margin-bottom: 4px;
+}
+
+.vials-subtitle {
+  font-size: 0.88rem;
+  color: #E15B7E;
+  margin-bottom: 10px;
+}
+
+.card-footer-left {
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+
+
+
+/* ////////////////////////////////////////////////////
+   RESPONSIVE — TABLET (max 1024px)
+//////////////////////////////////////////////////// */
+@media screen and (max-width: 1024px) {
+
+  .service-card img {
+    height: 240px;
+  }
+
+  .vial-image {
+    height: 260px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ////////////////////////////////////////////////////
+   RESPONSIVE design for FAQ section
+//////////////////////////////////////////////////// */
+@keyframes faqFade {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ////////////////////////////////////////////////////
+   RESPONSIVE — MOBILE (max 768px)
+//////////////////////////////////////////////////// */
+@media screen and (max-width: 1023px) {
+  
+  .navbar-menu.is-active {
+    display: block !important;
+    background-color: #FDD1DE;
+    padding: 0.5rem 1rem 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-menu.is-active .navbar-item {
+    color: #E15B7E;
+    border-bottom: 1px solid rgba(225, 91, 126, 0.15);
+  }
+  
+
+  /* REVIEWS — single column */
+  .review-section .columns {
+    flex-direction: column;
+  }
+
+  .review-section .columns .column {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  /* GALLERY */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  /* VIBE VIALS CARDS — single column */
+  .columns .column.is-one-third {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 20px;
+  }
+
+  .vial-image {
+    height: 240px;
+  }
+
+  /* MENU flavour cards — single column */
+  .menu-col .column {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ABOUT */
+  .sips-img {
+    max-height: 320px;
+  }
+}
+
+
+/* Package page */
+@media screen and (max-width: 768px) {
+  .service-extras li {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .service-extras li span:last-child {
+    text-align: left;
+  }
+}
+
+/* package page */
+@media screen and (max-width: 1023px) {
+  .package-band {
+    flex-direction: column;
+  }
+
+  .package-band-visual {
+    flex: 0 0 auto;
+    padding: 20px;
+  }
+
+  .package-band-content {
+    padding: 32px 24px;
+  }
+
+  .package-list.is-two-col {
+    column-count: 1;
+  }
+}
+
+
+
+
+
+/* * =====================================================
+   RESPONSIVE — TABLET & MOBILE 
+   ===================================================== */
+@media screen and (max-width: 1023px) {
+ 
+  /* Dropdown menu */
+  .navbar-menu.is-active {
+    display: block !important;
+    background-color: #FDD1DE;
+    padding: 0.5rem 1rem 1.25rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+ 
+  .navbar-menu.is-active .navbar-item {
+    color: #E15B7E;
+    font-size: 1.15rem;
+    padding: 0.85rem 0.5rem;
+    border-bottom: 1px solid rgba(225, 91, 126, 0.15);
+  }
+ 
+  /* Enquire button: normal size, full width inside the dropdown */
+  .navbar-menu.is-active #contactbtn {
+    display: flex;
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 0.6rem 1rem;
+  }
+ 
+  .navbar-menu.is-active .navbar-item:last-child {
+    border-bottom: none;
+    padding-top: 1rem;
+  }
+ 
+  /* Package bands stack: coloured title on top, details below */
+  .package-band {
+    flex-direction: column;
+  }
+ 
+  .package-band-visual {
+    flex: 0 0 auto;
+    padding: 20px;
+  }
+ 
+  /* Gallery */
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+ 
+ 
+/* =====================================================
+   RESPONSIVE — MOBILE
+   ===================================================== */
+@media screen and (max-width: 768px) {
+ 
+  .navbar { padding: 0 0.75rem; }
+ 
+  .columns .column { margin-bottom: 8px; }
+ 
+  .review-section { padding: 24px 12px; }
+ 
+  .package-list.is-two-col {
+    column-count: 1;
+  }
+ 
+  .package-card {
+    min-height: auto;
+  }
+ 
+  .service-card,
+  .service-card--wide {
+    padding: 22px 18px;
+  }
+ 
+  .footer-heading { margin-top: 8px; }
+ 
+  .sips-img { max-height: 320px; }
+}
+ 
+ 
+
+
+/* =====================================================
+   RESPONSIVE — SMALL PHONES 
+   ===================================================== */
+@media screen and (max-width: 480px) {
+ 
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+ 
+  .package-band-content {
+    padding: 24px 18px;
+  }
+ 
+  .package-price,
+  .package-band-content .package-price {
+    font-size: 1.4rem;
+  }
+ 
+  /* Stack service name above its price on very narrow screens */
+  .service-extras li span:last-child {
+    text-align: left;
+    flex-basis: 100%;
+  }
+}
+
+
+@media (hover: hover) {
+  .navbar-end > .navbar-item:hover {
+    color: #E15B7E !important;
+    transform: scale(1.06);
+    background-color: transparent !important;
+  }
+}
+ 
+/* Desktop only: larger logo */
+@media screen and (min-width: 1024px) {
+  .navbar-brand .navbar-item img { height: 200px; }
+}
+ 
+
+
+
+/* Gallery item hover effect */
+@media (hover: hover) {
+  .gallery-item:hover img,
+  .gallery-item:hover video {
+    transform: scale(1.04);
+  }
+}
