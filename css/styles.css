@@ -296,6 +296,31 @@ body {
 }
 
 
+/* Review form background */
+#review-form {
+  background-color: #E15B7E;
+}
+
+/* Labels need to be light so they're readable on the pink */
+#review-form .label {
+  color: #ffffff;
+}
+
+/* Submit button */
+#review-form .button.is-primary {
+  background-color: #FDD1DE;
+  color: #E15B7E;
+  border: none;
+  font-weight: 600;
+}
+
+#review-form .button.is-primary:hover,
+#review-form .button.is-primary:focus {
+  background-color: #fbbfd1;
+  color: #E15B7E;
+}
+
+
 /* ////////////////////////////////////////////////////
    HOME — SOCIALS SECTION
 //////////////////////////////////////////////////// */

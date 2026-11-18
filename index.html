@@ -215,12 +215,54 @@
             <p class="client">– Natasha</p>
           </div>
         </div>
-        <div class="has-text-centered mt-5">
-          <a class="more-reviews-link" href="reviews.html">
-            Read All Reviews →
-          </a>
-        </div>
+        
       </div>
+      <div class="has-text-centered mt-5">
+        <a class="more-reviews-link" href="reviews.html">
+          Read All Reviews →
+        </a>
+      </div>
+      <!-- LEAVE A REVIEW DROPDOWN -->
+      <details class="leave-review mt-5">
+        <summary class="more-reviews-link mt-6">Click To Leave a Review</summary>
+
+        <form id="review-form" class="box mt-4"
+              action="https://formspree.io/f/xjywrazr" method="POST">
+
+          <div class="field">
+            <label class="label" for="name">Your name</label>
+            <input class="input" type="text" id="name" name="name" required>
+          </div>
+
+          <div class="field">
+            <label class="label" for="rating">Rating</label>
+            <div class="select">
+              <select id="rating" name="rating" required>
+                <option value="" disabled selected>Choose…</option>
+                <option value="5">★★★★★ (5)</option>
+                <option value="4">★★★★☆ (4)</option>
+                <option value="3">★★★☆☆ (3)</option>
+                <option value="2">★★☆☆☆ (2)</option>
+                <option value="1">★☆☆☆☆ (1)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="message">Your review</label>
+            <textarea class="textarea" id="message" name="message" required></textarea>
+          </div>
+
+          <!-- honeypot to catch spam bots: leave hidden -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+          <button class="button is-primary" type="submit">Submit Review</button>
+        </form>
+
+        <div id="review-success" class="notification is-success is-light mt-4" style="display:none;">
+          Thank you! Your review has been submitted.
+        </div>
+      </details>
     </div>
   </section>
   <hr class="custom-divider">
